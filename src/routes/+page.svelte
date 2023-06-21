@@ -1,9 +1,19 @@
 <script>
+	import { enhance } from '$app/forms';
+
     export let data;
+    export let form;
 </script>
 
-<form method="POST">
-    <input name="search" type="text" placeholder="Search here" />
+<form
+    method="POST"
+    use:enhance={() => {
+        return async ({ result }) => {
+            data = result.data;
+        }
+    }}
+>
+    <input name="search" type="text" placeholder="Search here" value={form?.search ?? ''} />
 </form>
 
 {#each data.hits as post}
