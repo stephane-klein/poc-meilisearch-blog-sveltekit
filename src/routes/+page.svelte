@@ -39,5 +39,10 @@
 
 {#each data.hits as post}
     <h1>{@html post?._formatted?.title ?? post?.title}</h1>
+    <ul>
+        {#each post?.tags as tag}
+            <li>#{tag}</li>
+        {/each}
+    </ul>
     <div>{@html post?._formatted?.body ?? post?.body}</div>
 {/each}
