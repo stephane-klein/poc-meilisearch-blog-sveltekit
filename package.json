@@ -1,0 +1,16 @@
+{
+  "name": "poc-meilisearch-blog-sveltekit",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "init": "node init.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "meilisearch": "^0.33.0"
+  }
+}
