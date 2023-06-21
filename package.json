@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "meilisearch": "0.33.0",
     "@sveltejs/adapter-auto": "2.0.0",
+    "@sveltejs/adapter-node": "1.2.4",
     "@sveltejs/kit": "1.5.0",
+    "meilisearch": "0.33.0",
     "svelte": "3.54.0",
     "vite": "4.3.0"
   }
