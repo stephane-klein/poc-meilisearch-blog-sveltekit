@@ -15,7 +15,12 @@ export const actions = {
         const data = await event.request.formData();
         const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
-        event.locals.data = client.index('posts').search(data.get('search'));
+        event.locals.data = client.index('posts').search(
+            data.get('search'),
+            {
+                attributesToHighlight: ['*']
+            }
+        );
         return event.locals.data;
     }
 };

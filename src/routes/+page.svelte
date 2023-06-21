@@ -38,6 +38,6 @@
 </form>
 
 {#each data.hits as post}
-    <h1>{post.title}</h1>
-    <div>{@html post.body}</div>
+    <h1>{@html post?._formatted?.title ?? post?.title}</h1>
+    <div>{@html post?._formatted?.body ?? post?.body}</div>
 {/each}
