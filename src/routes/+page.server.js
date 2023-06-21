@@ -2,8 +2,6 @@ import { MeiliSearch } from 'meilisearch';
 
 export async function load(event) {
     const client = new MeiliSearch({ host: 'http://localhost:7700' });
-    console.log(event);
-    console.log('event');
 
     if (event.locals?.data) {
         return event.locals?.data;

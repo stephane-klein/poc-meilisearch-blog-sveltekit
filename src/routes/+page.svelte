@@ -1,8 +1,9 @@
 <script>
-	import { enhance } from '$app/forms';
+	import { enhance, deserialize } from '$app/forms';
 
     export let data;
     export let form;
+    let timer;
 </script>
 
 <form
@@ -13,7 +14,27 @@
         }
     }}
 >
-    <input name="search" type="text" placeholder="Search here" value={form?.search ?? ''} />
+    <input
+        name="search"
+        type="text"
+        placeholder="Search here"
+        value={form?.search ?? ''}
+        on:keyup={(event) => {
+            clearTimeout(timer);
+            timer = setTimeout(async () => {
+                    const response = await fetch('./', {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            search: event.target.value
+                        })
+                    });
+                    const result = deserialize(await response.text());
+                    data = result.data;
+                },
+                500
+            );
+        }}
+    />
 </form>
 
 {#each data.hits as post}
