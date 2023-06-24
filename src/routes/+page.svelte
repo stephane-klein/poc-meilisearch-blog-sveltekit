@@ -46,7 +46,7 @@
         <ul class="flex flex-row gap-2 my-2">
             {#each post?.tags as tag}
                 <li class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
-                    #{tag}
+                    <a href="?tags={tag}">#{tag}</a>
                 </li>
             {/each}
         </ul>
