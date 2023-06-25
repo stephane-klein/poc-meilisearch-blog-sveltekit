@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "init": "node init.js",
+    "scratchpad": "node scratchpad.js",
     "dev": "vite dev"
   },
   "keywords": [],
