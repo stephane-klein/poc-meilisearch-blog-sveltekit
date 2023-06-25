@@ -51,7 +51,10 @@
         <h1 class="text-2xl font-bold underline">{@html post?._formatted?.title ?? post?.title}</h1>
         <ul class="flex flex-row gap-2 my-2">
             {#each post?.tags as tag}
-                <li class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
+                <li
+                    class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
+                    class:bg-yellow-200={$page.url.searchParams.has('tags') && ($page.url.searchParams.get('tags') == tag)}
+                >
                     <a href="?tags={tag}">#{tag}</a>
                 </li>
             {/each}
