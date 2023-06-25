@@ -28,6 +28,8 @@ export const actions = {
             data.get('search'),
             {
                 attributesToHighlight: ['*'],
+                highlightPreTag: '<span class="bg-yellow-200">',
+                highlightPostTag: '</span>',
                 filter: (
                     (data.has('tags') && (data.get('tags') !== ''))
                     ? `tags = "${data.get('tags')}"`
