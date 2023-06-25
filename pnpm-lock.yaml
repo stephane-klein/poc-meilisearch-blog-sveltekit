@@ -37,8 +37,14 @@ dependencies:
     version: 4.3.9
 
 devDependencies:
+  '@babel/plugin-transform-modules-commonjs':
+    specifier: 7.22.5
+    version: 7.22.5(@babel/core@7.22.5)
+  babel-jest:
+    specifier: 29.5.0
+    version: 29.5.0(@babel/core@7.22.5)
   jest:
-    specifier: ^29.5.0
+    specifier: 29.5.0
     version: 29.5.0
 
 packages:
@@ -346,6 +352,20 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
+    dev: true
+
+  /@babel/plugin-transform-modules-commonjs@7.22.5(@babel/core@7.22.5):
+    resolution: {integrity: sha512-B4pzOXj+ONRmuaQTg05b3y/4DuFz3WcCNAXPLb2Q0GT0TrGKGxNKV4jwsXts+StaM0LQczZbOpj8o1DLPDJIiA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.22.5
+      '@babel/helper-module-transforms': 7.22.5
+      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-simple-access': 7.22.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@babel/template@7.22.5:
