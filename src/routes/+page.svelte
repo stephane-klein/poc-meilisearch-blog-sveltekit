@@ -1,5 +1,6 @@
 <script>
 	import { enhance, deserialize } from '$app/forms';
+    import { page } from '$app/stores';
 
     export let data;
     export let form;
@@ -27,7 +28,12 @@
                         const response = await fetch('./', {
                             method: 'POST',
                             body: new URLSearchParams({
-                                search: event.target.value
+                                search: event.target.value,
+                                tags: (
+                                    $page.url.searchParams.has('tags')
+                                    ? $page.url.searchParams.get('tags')
+                                    : ''
+                                )
                             })
                         });
                         const result = deserialize(await response.text());

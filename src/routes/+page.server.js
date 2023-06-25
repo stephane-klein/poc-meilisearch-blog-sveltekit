@@ -1,8 +1,6 @@
 import { MeiliSearch } from 'meilisearch';
 
 export async function load(event) {
-    console.log('event.request');
-    console.log(event.url.searchParams.get('tags'));
     const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
     if (event.locals?.data) {
@@ -23,14 +21,18 @@ export async function load(event) {
 
 export const actions = {
     default: async(event) => {
-        console.log(event.url);
         const data = await event.request.formData();
         const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
-        event.locals.data = client.index('posts').search(
+        event.locals.data = await client.index('posts').search(
             data.get('search'),
             {
-                attributesToHighlight: ['*']
+                attributesToHighlight: ['*'],
+                filter: (
+                    (data.has('tags') && (data.get('tags') !== ''))
+                    ? `tags = "${data.get('tags')}"`
+                    : undefined
+                )
             }
         );
         return event.locals.data;
