@@ -1,6 +1,9 @@
 <script>
-	import { enhance, deserialize } from '$app/forms';
+	import { deserialize } from '$app/forms';
     import { page } from '$app/stores';
+    import {
+        goto
+    } from '$app/navigation';
     import { parseSearchString } from './../parser';
 
     export let data;
@@ -16,15 +19,17 @@
     );
 
     let timer;
+
+    async function handleSubmit() {
+        const data = new FormData(this);
+        console.log(data.get('search'));
+        goto(`./?q=${encodeURIComponent(data.get('search'))}`);
+    }
 </script>
 
 <form
     method="POST"
-    use:enhance={() => {
-        return async ({ result }) => {
-            data = result.data;
-        }
-    }}
+    on:submit|preventDefault={handleSubmit}
 >
     <div class="relative mt-2 flex items-center">
         <input
@@ -40,9 +45,6 @@
                 )
             }
             on:keyup={(event) => {
-                /*
-                { tags } = parseSearchString(event.target.value);
-                */
                 clearTimeout(timer);
                 timer = setTimeout(async () => {
                         const response = await fetch('./', {

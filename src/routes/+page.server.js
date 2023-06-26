@@ -16,6 +16,9 @@ export async function load(event) {
         return await client.index('posts').search(
             queryString,
             {
+                attributesToHighlight: ['*'],
+                highlightPreTag: '<span class="bg-yellow-200">',
+                highlightPostTag: '</span>',
                 filter: filter
             }
         );
