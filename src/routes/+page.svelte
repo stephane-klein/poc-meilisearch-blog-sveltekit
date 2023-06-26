@@ -1,9 +1,17 @@
 <script>
 	import { enhance, deserialize } from '$app/forms';
     import { page } from '$app/stores';
+    import { parseSearchString } from './../parser';
 
     export let data;
     export let form;
+
+    const { tags } = parseSearchString(
+        $page.url.searchParams.has('q')
+            ? $page.url.searchParams.get('q')
+            : ''
+    );
+
     let timer;
 </script>
 
@@ -21,7 +29,13 @@
             name="search"
             type="text"
             placeholder="Search here"
-            value={form?.search ?? ''}
+            value={
+                form?.search ?? (
+                    $page.url.searchParams.has('q')
+                        ? $page.url.searchParams.get('q')
+                        : ''
+                )
+            }
             on:keyup={(event) => {
                 clearTimeout(timer);
                 timer = setTimeout(async () => {
@@ -53,9 +67,9 @@
             {#each post?.tags as tag}
                 <li
                     class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
-                    class:bg-yellow-200={$page.url.searchParams.has('tags') && ($page.url.searchParams.get('tags') == tag)}
+                    class:bg-yellow-200={tags.includes(tag)}
                 >
-                    <a href="?tags={tag}">#{tag}</a>
+                    <a data-sveltekit-reload href="?q=%23{tag}">#{tag}</a>
                 </li>
             {/each}
         </ul>

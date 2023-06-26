@@ -1,19 +1,22 @@
 import { MeiliSearch } from 'meilisearch';
+import { parseSearchString } from './../parser';
 
 export async function load(event) {
     const client = new MeiliSearch({ host: 'http://localhost:7700' });
+
+    const {queryString, filter} = parseSearchString(
+        event.url.searchParams.has('q')
+            ? event.url.searchParams.get('q')
+            : ''
+    );
 
     if (event.locals?.data) {
         return event.locals?.data;
     } else {
         return await client.index('posts').search(
-            '',
+            queryString,
             {
-                filter: (
-                    event.url.searchParams.has('tags')
-                    ? `tags = "${event.url.searchParams.get('tags')}"`
-                    : undefined
-                )
+                filter: filter
             }
         );
     }
@@ -24,17 +27,15 @@ export const actions = {
         const data = await event.request.formData();
         const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
+        const {queryString, filter} = parseSearchString(data.get('search'));
+
         event.locals.data = await client.index('posts').search(
-            data.get('search'),
+            queryString,
             {
                 attributesToHighlight: ['*'],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
-                filter: (
-                    (data.has('tags') && (data.get('tags') !== ''))
-                    ? `tags = "${data.get('tags')}"`
-                    : undefined
-                )
+                filter: filter
             }
         );
         return event.locals.data;

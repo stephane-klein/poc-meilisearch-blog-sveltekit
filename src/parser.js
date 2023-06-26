@@ -1,17 +1,13 @@
 export function parseSearchString(q) {
-    // const regex = new RegExp('(?<tags>[#][^\\s]*)', 'gm');
     const splited = q.split(' ');
 
     const tags = splited.filter(
         chunk => chunk.startsWith('#')
     ).map(
-        tag => `"${tag.substr(1)}"`
+        tag => tag.substr(1)
     );
-    const queryString = splited.filter(
-        chunk => chunk.startsWith('#')
-    ).map(
-        tag => `"${tag.substr(1)}"`
-    );
+
+    const quotedTags = tags.map(tag => `"${tag}"`);
 
     return {
         queryString: splited.filter(
@@ -19,8 +15,9 @@ export function parseSearchString(q) {
         ).join(' '),
         filter: (
             tags.length
-            ? `tags IN [${tags.join(',')}]`
+            ? `tags IN [${quotedTags.join(',')}]`
             : undefined
-        )
+        ),
+        tags: tags
     };
 }
