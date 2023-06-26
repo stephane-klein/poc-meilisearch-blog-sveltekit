@@ -5,11 +5,14 @@
 
     export let data;
     export let form;
+    export let tags;
 
-    const { tags } = parseSearchString(
-        $page.url.searchParams.has('q')
-            ? $page.url.searchParams.get('q')
-            : ''
+    $: (
+        { tags } = parseSearchString(
+            $page.url.searchParams.has('q')
+                ? $page.url.searchParams.get('q')
+                : ''
+        )
     );
 
     let timer;
@@ -25,7 +28,7 @@
 >
     <div class="relative mt-2 flex items-center">
         <input
-            class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            class="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             name="search"
             type="text"
             placeholder="Search here"
@@ -37,17 +40,15 @@
                 )
             }
             on:keyup={(event) => {
+                /*
+                { tags } = parseSearchString(event.target.value);
+                */
                 clearTimeout(timer);
                 timer = setTimeout(async () => {
                         const response = await fetch('./', {
                             method: 'POST',
                             body: new URLSearchParams({
-                                search: event.target.value,
-                                tags: (
-                                    $page.url.searchParams.has('tags')
-                                    ? $page.url.searchParams.get('tags')
-                                    : ''
-                                )
+                                search: event.target.value
                             })
                         });
                         const result = deserialize(await response.text());
@@ -69,7 +70,7 @@
                     class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                     class:bg-yellow-200={tags.includes(tag)}
                 >
-                    <a data-sveltekit-reload href="?q=%23{tag}">#{tag}</a>
+                    <a href="?q=%23{tag}">#{tag}</a>
                 </li>
             {/each}
         </ul>
