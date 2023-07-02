@@ -16,7 +16,10 @@ export async function load(event) {
         return await client.index('posts').search(
             queryString,
             {
-                attributesToHighlight: ['*'],
+                attributesToHighlight: [
+                    'title',
+                    'body_html'
+                ],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
                 filter: filter
@@ -35,7 +38,10 @@ export const actions = {
         event.locals.data = await client.index('posts').search(
             queryString,
             {
-                attributesToHighlight: ['*'],
+                attributesToHighlight: [
+                    'title',
+                    'body_html'
+                ],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
                 filter: filter

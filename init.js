@@ -11,10 +11,16 @@ client.index('movies').updateSettings({
         'body'
     ],
     filterableAttributes: [
-      'tags'
+        'tags'
     ],
     sortableAttributes: [
-      'date'
+        'date'
+    ],
+    displayedAttributes: [
+        'title',
+        'tags',
+        'body_html',
+        'date'
     ]
 });
 
@@ -28,6 +34,7 @@ posts.forEach((item) => {
             {
                 allowedTags: []
             }
-        )
+        ),
+        body_html: item.body
     }])
 });

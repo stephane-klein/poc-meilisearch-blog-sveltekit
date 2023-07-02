@@ -77,7 +77,7 @@
             {/each}
         </ul>
         <div class="prose lg:prose-lg max-w-none">
-            {@html post?._formatted?.body ?? post?.body}
+            {@html post?._formatted?.body_html ?? post?.body_html}
         </div>
     </article>
 {/each}
