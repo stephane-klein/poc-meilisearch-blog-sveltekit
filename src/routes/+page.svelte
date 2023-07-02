@@ -66,6 +66,9 @@
 {#each data.hits as post}
     <article class="mt-8 mb-16">
         <h1 class="text-2xl font-bold underline">{@html post?._formatted?.title ?? post?.title}</h1>
+
+        <div class="my-2">Publié le : {post?.date}</div>
+
         <ul class="flex flex-row gap-2 my-2">
             {#each post?.tags as tag}
                 <li

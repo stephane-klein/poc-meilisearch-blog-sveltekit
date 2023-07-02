@@ -22,7 +22,8 @@ export async function load(event) {
                 ],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
-                filter: filter
+                filter: filter,
+                sort: ['date:asc']
             }
         );
     }
@@ -44,7 +45,8 @@ export const actions = {
                 ],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
-                filter: filter
+                filter: filter,
+                sort: ['date:asc']
             }
         );
         return event.locals.data;
