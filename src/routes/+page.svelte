@@ -1,12 +1,11 @@
 <script>
-    import MarkdownIt from 'markdown-it';
-    import markdownItHashtag from 'markdown-it-hashtag';
 	import { deserialize } from '$app/forms';
     import { page } from '$app/stores';
     import {
         goto
     } from '$app/navigation';
     import { parseSearchString } from './../parser';
+    import { markdownIt } from '../markdown';
 
     export let data;
     export let form;
@@ -26,29 +25,6 @@
         const data = new FormData(this);
         console.log(data.get('search'));
         goto(`./?q=${encodeURIComponent(data.get('search'))}`);
-    }
-
-    const markdownIt = new MarkdownIt({
-        html: true,
-        linkify: true,
-        typographer: true
-    })
-    .use(markdownItHashtag, {
-          hashtagRegExp: '[a-zA-Z-]+',
-          preceding:     '^|\\s'
-    });
-
-    markdownIt.renderer.rules.hashtag_open  = function(tokens, idx) {
-        var tagName = tokens[idx].content.toLowerCase();
-        return '<a href="/?q=%23' + tagName + '" class="tag">';
-    }
-
-    markdownIt.renderer.rules.hashtag_text  = function(tokens, idx) {
-        return '#' + tokens[idx].content;
-    }
-
-    markdownIt.renderer.rules.hashtag_close = function() {
-        return '</a>';
     }
 
 </script>
