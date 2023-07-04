@@ -1,7 +1,6 @@
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
 import { MeiliSearch } from 'meilisearch';
-import sanitizeHtml from 'sanitize-html';
+import yaml from 'js-yaml';
+import fs from 'fs';
 
 const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
@@ -19,22 +18,17 @@ client.index('movies').updateSettings({
     displayedAttributes: [
         'title',
         'tags',
-        'body_html',
+        'body',
         'date'
     ]
 });
 
+try {
+    const posts = yaml.load(fs.readFileSync('./posts.yaml', 'utf8'));
+    posts.forEach((item) => {
+        client.index('posts').addDocuments([item])
+    });
+} catch (e) {
+    console.log(e);
+}
 
-const posts = require('./posts.json');
-posts.forEach((item) => {
-    client.index('posts').addDocuments([{
-        ...item,
-        body: sanitizeHtml(
-            item.body,
-            {
-                allowedTags: []
-            }
-        ),
-        body_html: item.body
-    }])
-});

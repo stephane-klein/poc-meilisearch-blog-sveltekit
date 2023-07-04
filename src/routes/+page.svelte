@@ -1,4 +1,5 @@
 <script>
+    import MarkdownIt from 'markdown-it';
 	import { deserialize } from '$app/forms';
     import { page } from '$app/stores';
     import {
@@ -25,6 +26,13 @@
         console.log(data.get('search'));
         goto(`./?q=${encodeURIComponent(data.get('search'))}`);
     }
+
+    const markdownIt = new MarkdownIt({
+        html: true,
+        linkify: true,
+        typographer: true
+    })
+
 </script>
 
 <form
@@ -80,7 +88,7 @@
             {/each}
         </ul>
         <div class="prose lg:prose-lg max-w-none">
-            {@html post?._formatted?.body_html ?? post?.body_html}
+            {@html markdownIt.render(post?._formatted?.body ?? post?.body)}
         </div>
     </article>
 {/each}

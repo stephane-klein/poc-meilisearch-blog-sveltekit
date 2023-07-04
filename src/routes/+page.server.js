@@ -18,7 +18,7 @@ export async function load(event) {
             {
                 attributesToHighlight: [
                     'title',
-                    'body_html'
+                    'body'
                 ],
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
@@ -41,8 +41,12 @@ export const actions = {
             {
                 attributesToHighlight: [
                     'title',
-                    'body_html'
+                    'body'
                 ],
+                attributesToCrop: [
+                    'body'
+                ],
+                cropLength: 60,
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
                 filter: filter,

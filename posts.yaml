@@ -1,0 +1,123 @@
+---
+- id: 1
+  title: La journée d'étape 1 de John Doe sur le Chemin de Stevenson
+  date: "2023-06-12"
+  tags:
+    - chemin-de-stevenson
+    - john-doe
+    - yak
+    - foret-de-bouleaux
+    - randonnée
+  body: |-
+    C'est le 12 juin 2023: John Doe s'élance pour sa première journée de marche sur le #Chemin-de-Stevenson,
+    accompagné de son #yak. Il compte une bonne dizaine de kilomètres à parcourir aujourd'hui, mais John est
+    prêt pour cette aventure inoubliable!
+
+    Le trajet commence par une superbe forêt de bouleaux, où John arrête souvent pour s'enivrer des odeurs et
+    des couleurs du paysage. Au cours de sa randonnée, il a également la chance de voir quelques animaux sauvages :
+    des chevreuils et des marmottes!
+
+    Les 12 kilomètres se sont rapidement transformés en 20 kilomètres, et lorsque John atteint enfin son camp
+    de nuit, il est fourbu mais satisfait. Il installe sa tente, fait un feu et se couche pour une bonne nuit
+    de sommeil
+
+- id: 2
+  title: John Doe fait le Chemin de Stevenson - Journée d'étape 2
+  date: "2023-06-13"
+  tags:
+    - chemin-de-stevenson
+    - randonnée
+    - john-doe
+    - yak
+    - nature
+    - voyage
+  body: |-
+    John Doe, accompagné de son yak, a fait le premier pas sur le Chemin de Stevenson le 12 juin 2023.
+    Hier était la première journée de sa randonnée et aujourd'hui, 13 juin, c'était le début de la deuxième.
+
+    La journée a été riche en découvertes. John a traversé des forêts, des #montagnes et des sentiers escarpés,
+    le long desquels il a pu admirer la nature qui le surplombait. Les paysages côtiers l'ont fait s'arrêter
+    à plusieurs reprises, émerveillé par ce qu'il voyait. Malgré le vent et la pluie, John et le yak poursuivaient
+    leur long chemin. Dans la journée, ils ont parcouru 20km environ, avant de finir par s'arrêter et
+    s'installer pour la nuit.
+
+    John a partagé son aventure sur les réseaux sociaux et ravit son audience. Une chose est sûre, demain
+    promet encore plus de grandes découvertes !
+
+- id: 3
+  title: Une journée sur le Chemin de Stevenson avec John Doe et son yak
+  date: "2023-06-16"
+  tags:
+    - randonnée
+    - stevenson
+    - adventure
+    - yak
+    - montagne
+  body: |-
+    John Doe continue sur son incroyable périple sur le #Chemin-de-Stevenson. Ce 12 juin 2023, c'est la journée d'étape 4.
+    Une magnifique promenade à travers les montagnes, John et son yak progréssent à bonne allure.
+
+    Une randonnée belle et sauvage. Des paysages variés et spectaculaires, à couper le souffle.
+    Les compagnons de voyage de John sont émerveillés par la beauté de la région.
+    Une journée remplie d'aventures qui laisseront des souvenirs mémorables à chacun.
+
+- id: 4
+  title: "John Doe et son yak: Étape 5 du Chemin de Stevenson"
+  date: "2023-06-17"
+  tags:
+    - chemin-de-stevenson
+    - bonnac
+    - monceaux
+    - juneau-lac
+    - john-doe
+    - randonnée
+  body: |-
+    John Doe, le randonneur aventurier, et son yak pour compagnon ont entamé le Chemin de Stevenson le 12 juin 2023.
+    Ce matin, ils se sont levés à l'aube et sont partis de Bonnac en direction de Monceaux.
+    Au cours de l'après-midi, ils sont arrivés à Juneau lac et ont profité de la vue magnifique sur le lac.
+
+    En fin de journée, John et son yak s'arrêtèrent à Monceaux pour passer la nuit sous les étoiles.
+    Le lendemain matin, ils repartirent heureux et décidés sur la prochaine étape du Chemin de Stevenson.
+- id: 5
+  title: Le Chemin de Stevenson - Journée d'étape 6
+  date: "2023-06-18"
+  tags:
+    - randonnée
+    - stevenson
+    - yak
+    - extérieur
+    - chemin
+    - john-doe
+  body: |-
+    John Doe et son yak poursuivent leur trek d'une journée sur le Chemin de Stevenson, de la Croix
+    des Charettes à la Charbonnière de la Firme. Très prisée pour sa vue sur les sommets environnants,
+    c'est l'un des plus beaux sites du chemin.
+
+    John a marché pendant une heure pour arriver à son point de ravitaillement de mi-parcours. Après
+    une pause bien méritée, il et son yak se sont remis en route, traversant quelques petits ruisseaux
+    et prenant le temps de contempler les alentours. La journée a été longue mais très satisfaisante.
+
+    La Charbonnière de la Firme est le but de la journée. Après presque 12 kilomètres de marche dans
+    les montagnes, John et son yak ont mérité de lever le camp pour la nuit. Une nouvelle journée de
+    défis et de découvertes les attends demain !
+- id: 6
+  title: John Doe fait l'étape 7 du Chemin de Stevenson
+  date: "2023-06-19"
+  tags:
+    - randonnée
+    - montagnes
+    - chemin
+    - steveson
+    - yak
+  body: |-
+    John Doe, avec son yak, aide, a commencé le 12 juin 2023 le Chemin de Stevenson.
+    Aujourd'hui, c'est l'étape 7, qui part de la capitale de la province de l'Altitude Solaire
+    et qui rejoint les alpages des Cimes Illimitées.
+
+    Le chemin est sinueux et parsemé de tournants, de régions reculées, d'un relief à couper le
+    souffle et de paysages inoubliables. John a passé la nuit précédente dans une thyme des
+    vallon sauvage. La journée se déroule bien, et John et son yak progressent tranquillement.
+    En milieu d'après-midi, John s'arrête pour admirer le coucher du soleil sur les Préludes Endormis.
+
+    À la tombée de la nuit, John et son yak finisse l'étape et arrive à la bergerie des Cimes Illimitées
+    où ils passeront la nuit. Demain, nouvelle étape, et ainsi de suite !
