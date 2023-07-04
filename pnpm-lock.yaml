@@ -26,6 +26,9 @@ dependencies:
   markdown-it:
     specifier: ^13.0.1
     version: 13.0.1
+  markdown-it-hashtag:
+    specifier: ^0.4.0
+    version: 0.4.0
   meilisearch:
     specifier: 0.33.0
     version: 0.33.0
@@ -2547,6 +2550,10 @@ packages:
     dependencies:
       tmpl: 1.0.5
     dev: true
+
+  /markdown-it-hashtag@0.4.0:
+    resolution: {integrity: sha512-+VCMH+f4/Ud5wPEtcAMrlLbUrrGViwR9JvjPy//X3Z7ZG1j5nQuHtDLTGZfMhkqYTMY+cTZgZkVNBsXMfU93Yg==}
+    dev: false
 
   /markdown-it@13.0.1:
     resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
