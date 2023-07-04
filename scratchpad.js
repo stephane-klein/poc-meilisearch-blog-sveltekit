@@ -2,7 +2,7 @@ import { MeiliSearch } from 'meilisearch';
 
 const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
-const result = await client.index('posts').search(
+let result = await client.index('posts').search(
     'p',
     {
         attributesToHighlight: ['*'],
@@ -12,3 +12,12 @@ const result = await client.index('posts').search(
 
 console.log(result.hits[0]);
 console.log(result.hits[0]._formatted);
+
+result = await client.index('posts').getDocument(
+    '/une-journee-sur-le-chemin-de-stevenson-avec-john-doe-et-son-yak/',
+    {
+        fields: ['id', 'title', 'body']
+    }
+);
+
+console.log(result);

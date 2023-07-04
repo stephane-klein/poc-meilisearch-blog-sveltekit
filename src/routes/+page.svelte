@@ -67,7 +67,11 @@
 
 {#each data.hits as post}
     <article class="mt-8 mb-16">
-        <h1 class="text-2xl font-bold underline">{@html post?._formatted?.title ?? post?.title}</h1>
+        <h1 class="text-2xl font-bold underline">
+            <a
+                href={post.slug}
+            >{@html post?._formatted?.title ?? post?.title}</a>
+        </h1>
 
         <div class="my-2">Publié le : {post?.date}</div>
 
