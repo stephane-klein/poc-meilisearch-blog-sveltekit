@@ -1,5 +1,5 @@
 import { MeiliSearch } from 'meilisearch';
-import { parseSearchString } from './../parser';
+import { parseSearchString } from './../../../parser';
 
 export async function load(event) {
     const client = new MeiliSearch({ host: 'http://localhost:7700' });
@@ -13,19 +13,25 @@ export async function load(event) {
     if (event.locals?.data) {
         return event.locals?.data;
     } else {
-        return await client.index('posts').search(
+        const response = await client.index('posts').search(
             queryString,
             {
                 attributesToHighlight: [
                     'title',
                     'body'
                 ],
+                attributesToCrop: [
+                    'body'
+                ],
+                cropLength: 60,
                 highlightPreTag: '<span class="bg-yellow-200">',
                 highlightPostTag: '</span>',
                 filter: filter,
                 sort: ['date:asc']
             }
         );
+        response.referer = event.request.headers.get('referer');
+        return response;
     }
 }
 

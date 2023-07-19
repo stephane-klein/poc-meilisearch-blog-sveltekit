@@ -1,11 +1,9 @@
 <script>
 	import { deserialize } from '$app/forms';
     import { page } from '$app/stores';
-    import {
-        goto
-    } from '$app/navigation';
-    import { parseSearchString } from './../parser';
-    import { markdownIt } from '../markdown';
+    import { goto } from '$app/navigation';
+    import { parseSearchString } from './../../../parser';
+    import { markdownIt } from './../../../markdown';
 
     export let data;
     export let form;
@@ -23,7 +21,6 @@
 
     async function handleSubmit() {
         const data = new FormData(this);
-        console.log(data.get('search'));
         goto(`./?q=${encodeURIComponent(data.get('search'))}`);
     }
 
@@ -31,13 +28,22 @@
 
 <form
     method="POST"
+    action="/search"
     on:submit|preventDefault={handleSubmit}
 >
     <div class="relative mt-2 flex items-center">
+        <a
+            href={data.referer}
+            class="text-gray-400 absolute top-0 -right-10"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-25 h-25"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <div class="text-gray-900 font-medium">esc</div>
+        </a>
         <input
             class="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             name="search"
             type="text"
+            autofocus="autofocus"
             placeholder="Search here"
             value={
                 form?.search ?? (
@@ -49,14 +55,14 @@
             on:keyup={(event) => {
                 clearTimeout(timer);
                 timer = setTimeout(async () => {
-                        const response = await fetch('./', {
+                        const response = await fetch('/search', {
                             method: 'POST',
                             body: new URLSearchParams({
                                 search: event.target.value
                             })
                         });
                         const result = deserialize(await response.text());
-                        data = result.data;
+                        data.hits = result.data.hits;
                     },
                     300
                 );
