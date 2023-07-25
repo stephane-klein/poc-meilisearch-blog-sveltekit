@@ -31,6 +31,10 @@ export async function load(event) {
             }
         );
         response.referer = event.request.headers.get('referer');
+        if (response.referer === null) {
+            response.referer = '/';
+        }
+
         return response;
     }
 }
