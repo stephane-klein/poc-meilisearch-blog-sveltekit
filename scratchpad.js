@@ -3,6 +3,16 @@ import { MeiliSearch } from 'meilisearch';
 const client = new MeiliSearch({ host: 'http://localhost:7700' });
 
 let result = await client.index('posts').search(
+    '',
+    {
+        facets: ['tags'],
+        limit: 0
+    }
+);
+console.log(result);
+
+/*
+result = await client.index('posts').search(
     'p',
     {
         attributesToHighlight: ['*'],
@@ -21,3 +31,4 @@ result = await client.index('posts').getDocument(
 );
 
 console.log(result);
+*/

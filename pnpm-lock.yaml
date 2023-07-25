@@ -36,7 +36,7 @@ dependencies:
     specifier: 8.4.24
     version: 8.4.24
   slug:
-    specifier: ^8.2.2
+    specifier: 8.2.2
     version: 8.2.2
   svelte:
     specifier: 4.0.0
