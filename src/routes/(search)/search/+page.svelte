@@ -4,6 +4,7 @@
     import { goto } from '$app/navigation';
     import { parseSearchString } from './../../../parser';
     import { markdownIt } from './../../../markdown';
+    import Keydown from "svelte-keydown";
 
     export let data;
     export let form;
@@ -25,6 +26,12 @@
     }
 
 </script>
+
+<Keydown
+    on:Escape={() => {
+        goto(data.referer);
+    }}
+/>
 
 <form
     method="POST"
@@ -67,7 +74,7 @@
                     300
                 );
             }}
-        >
+        />
     </div>
 </form>
 

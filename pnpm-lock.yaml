@@ -24,7 +24,7 @@ dependencies:
     specifier: 4.1.0
     version: 4.1.0
   markdown-it:
-    specifier: ^13.0.1
+    specifier: 13.0.1
     version: 13.0.1
   markdown-it-hashtag:
     specifier: ^0.4.0
@@ -41,6 +41,9 @@ dependencies:
   svelte:
     specifier: 4.0.0
     version: 4.0.0
+  svelte-keydown:
+    specifier: 0.6.0
+    version: 0.6.0
   tailwindcss:
     specifier: 3.3.2
     version: 3.3.2
@@ -3146,6 +3149,10 @@ packages:
       svelte: ^3.19.0 || ^4.0.0-next.0
     dependencies:
       svelte: 4.0.0
+    dev: false
+
+  /svelte-keydown@0.6.0:
+    resolution: {integrity: sha512-X5YBpz2SZY7ReMfbjqfsq4wFBuNM0Epi2/VS9LbxYYDHfJBSP/F5sx8D1hZz3amVLlc0JP8OLzIGsQAv6LJpIA==}
     dev: false
 
   /svelte@4.0.0:
