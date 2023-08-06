@@ -4,6 +4,6 @@
 </script>
 <ul>
 {#each Object.entries(data.facetDistribution.tags) as [name, number]}
-    <li><a href={`/search?q=%23${name}`}>{name} ({number})</a></li>
+    <li><a href={`/tags/${name}/`}>{name} ({number})</a></li>
 {/each}
 </ul>
