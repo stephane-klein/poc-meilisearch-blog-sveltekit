@@ -4,7 +4,15 @@
     export let data;
 </script>
 
-{#each data.hits as post}
+<p>
+    Posts <a href="../">tagged</a> as
+    <a href="./">
+        <span
+            class="ounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
+        >#{data.tag_slug}</span></a>
+</p>
+
+{#each data.posts.hits as post}
     <article class="mt-8 mb-16">
         <h1 class="text-2xl font-bold underline">
             <a
