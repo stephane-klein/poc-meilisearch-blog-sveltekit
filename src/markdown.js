@@ -13,7 +13,7 @@ export const markdownIt = new MarkdownIt({
 
 markdownIt.renderer.rules.hashtag_open  = function(tokens, idx) {
     var tagName = tokens[idx].content.toLowerCase();
-    return '<a href="/?q=%23' + tagName + '" class="tag">';
+    return '<a href="/search/?q=%23' + tagName + '" class="tag">';
 };
 
 markdownIt.renderer.rules.hashtag_text  = function(tokens, idx) {
