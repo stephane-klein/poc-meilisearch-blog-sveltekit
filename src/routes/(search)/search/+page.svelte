@@ -82,7 +82,7 @@
     <article class="mt-8 mb-16">
         <h1 class="text-2xl font-bold underline">
             <a
-                href={post.slug}
+                href={`/posts/${post.slug}/`}
             >{@html post?._formatted?.title ?? post?.title}</a>
         </h1>
 

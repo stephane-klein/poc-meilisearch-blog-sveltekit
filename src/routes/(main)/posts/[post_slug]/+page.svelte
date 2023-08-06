@@ -1,12 +1,12 @@
 <script>
-    import { markdownIt } from '../../../markdown';
+    import { markdownIt } from '../../../../markdown';
     export let data;
 </script>
 
 <article class="mt-8 mb-16">
     <h1 class="text-2xl font-bold underline">
         <a
-            href={data.post.slug}
+            href={`/posts/${ data.post.slug}/`}
         >{data.post?.title}</a>
     </h1>
 
