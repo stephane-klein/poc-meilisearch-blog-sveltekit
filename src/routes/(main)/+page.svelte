@@ -1,6 +1,4 @@
 <script>
-    import { markdownIt } from '../../markdown';
-
     export let data;
 </script>
 
@@ -15,7 +13,7 @@
         <div class="inline-flex items-center gap-x-1.5">
             <div class="my-2">Publié le : {post?.date}</div>
 
-            <ul class="flex flex-row gap-2 my-2">
+            <ul class="flex flex-row gap-2 my-2 dark:border-slate-800 border-l border-slate-400 pl-2">
                 {#each post?.tags as tag}
                     <li
                         class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"

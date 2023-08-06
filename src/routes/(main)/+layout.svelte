@@ -1,7 +1,17 @@
-<div class="my-4 flex flex-row">
+<script>
+    import { page } from '$app/stores';
+</script>
+<div class="my-4 flex flex-row items-center">
     <div class="grow flex flex-row space-x-4 font-semibold text-gray-600">
-        <a class="hover:text-gray-900" href="/">Index</a>
-        <a href="/tags/">Tags</a>
+        <a
+            class="hover:text-gray-900 border-red-400 px-2 py-1"
+            class:border-b-4={$page.url.pathname == '/'}
+            href="/">Index</a>
+        <a
+            class="hover:text-gray-900 border-red-400 px-2 py-1"
+            class:border-b-4={$page.url.pathname == '/tags/'}
+            href="/tags/"
+        >Tags</a>
     </div>
 
     <input
