@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { MeiliSearch } from 'meilisearch';
 import yaml from 'js-yaml';
 import fs from 'fs';

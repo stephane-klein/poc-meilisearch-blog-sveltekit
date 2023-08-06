@@ -6,7 +6,7 @@ Context: https://github.com/stephane-klein/backlog/issues/244
 $ docker-compose up -d
 $ asdf install
 $ pnpm install
-$ pnpm run init
+$ ./init.js
 $ pnpm run dev
 ```
 
