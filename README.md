@@ -14,6 +14,10 @@ Go to http://127.0.0.1:7700/ to play with the search engine.
 
 Go to http://localhost:5173/ to play with SvelteKit app.
 
+Screencast:
+
+![](./screencasts/screencast1.gif)
+
 ```sh
 $ pnpm run test
 
