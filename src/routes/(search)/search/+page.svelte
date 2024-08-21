@@ -78,29 +78,41 @@
     </div>
 </form>
 
-{#each data.hits as post}
-    <article class="mt-8 mb-16">
-        <h1 class="text-2xl font-bold underline">
-            <a
-                href={`/posts/${post.slug}/`}
-            >{@html post?._formatted?.title ?? post?.title}</a>
-        </h1>
-
-        <div class="my-2">Publié le : {post?.date}</div>
-
-        <ul class="flex flex-row gap-2 my-2">
-            {#each post?.tags as tag}
-                <li
-                    class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
-                    class:bg-yellow-200={tags.includes(tag)}
-                >
-                    <a href="?q=%23{tag}">#{tag}</a>
-                </li>
+<div class="flex flex-row">
+    <div class="w-1/5">
+        <ul>
+            {#each Object.entries(data.facetDistribution.tags) as [name, number]}
+                <li><a href={`/tags/${name}/`}>{name} ({number})</a></li>
             {/each}
         </ul>
-        <div class="prose lg:prose-lg max-w-none">
-            {@html markdownIt.render(post?._formatted?.body ?? post?.body)}
-        </div>
-    </article>
-{/each}
+    </div>
+
+    <div class="w-4/5">
+    {#each data.hits as post}
+        <article class="mt-8 mb-16">
+            <h1 class="text-2xl font-bold underline">
+                <a
+                    href={`/posts/${post.slug}/`}
+                >{@html post?._formatted?.title ?? post?.title}</a>
+            </h1>
+
+            <div class="my-2">Publié le : {post?.date}</div>
+
+            <ul class="flex flex-row gap-2 my-2">
+                {#each post?.tags as tag}
+                    <li
+                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
+                        class:bg-yellow-200={tags.includes(tag)}
+                    >
+                        <a href="?q=%23{tag}">#{tag}</a>
+                    </li>
+                {/each}
+            </ul>
+            <div class="prose lg:prose-lg max-w-none">
+                {@html markdownIt.render(post?._formatted?.body ?? post?.body)}
+            </div>
+        </article>
+    {/each}
+    </div>
+</div>
 

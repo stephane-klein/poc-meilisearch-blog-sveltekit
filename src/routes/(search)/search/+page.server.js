@@ -16,6 +16,7 @@ export async function load(event) {
         const response = await client.index('posts').search(
             queryString,
             {
+                facets: ['tags'],
                 attributesToHighlight: [
                     'title',
                     'body'
@@ -49,6 +50,7 @@ export const actions = {
         event.locals.data = await client.index('posts').search(
             queryString,
             {
+                facets: ['tags'],
                 attributesToHighlight: [
                     'title',
                     'body'
